@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+head {
+top: 50%;
+left: 50%;
+margin: 0;
+padding: 0;
+font-size: 40px;
+}
+.headcenter{
+text-align:center;
+vertical-align: middle;;
+top: 50%;
+left: 50%;
+padding-top: 3%;
+}
+body {
+    color: #20B2AA;
+    background-color: #F0FFFF ;
+}
+body{
+	font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 48px;
+}
+div#header {
+position: fixed;
+top = 0px;
+left = 0px;
+text-align = left;
+    height:50px;
+    background:#F0FFFF ;
+    border: none;
+    width:960px;
+    margin:0px auto;
+}	
+.button {
+
+    background-color: #F0FFFF; 
+
+	border-style: solid;
+    border-color: #20B2AA;
+	border-width: 1px;
+    color: #20B2AA;
+
+    display: inline-block;
+	height: 40px;
+	width: 230px;
+    font-size: 16px;
+
+
+}
+.textbox{
+border-style: solid;
+    border-color: #20B2AA;
+	border-width: 1px;
+    color: #A9A9A9;
+
+    display: inline-block;
+	height: 40px;
+	width: 500px;
+    font-size: 16px;
+
+
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li {
+    float: right;
+	font-size: 40px;
+}
+
+li a {
+    display: block;
+    color: 	#696969;
+    text-align: center;
+    padding: .1px;
+	padding-left: 7px;
+	padding-right: 7px;
+    text-decoration: none;
+}
+
+li a:hover {
+    outline: #20B2AA solid 1px;
+}
+.relative{
+position:relative;
+display: inline;
+margin-left: auto;
+    margin-right: auto;
+	font-size: 100px;
+}
+div.leftText{
+float:left; 
+margin-left : 22%; 
+width: 18%; 
+height:100px; 
+background-color:#F0FFFF ; 
+text-align: right;
+display: inline-block;
+vertical-align: middle;
+line-height: normal;
+padding-top: 5%;
+
+}
+div.upText{
+float:left; 
+width: 7%; 
+height:100px; 
+background-color:#F0FFFF ;
+text-align:center;
+}
+div.centerText{
+float:left; 
+width: 7%; 
+text-align:center;
+height:100px; 
+background-color:#F0FFFF ;
+display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+padding-top: 5%;
+}
+div.downText{
+float:left;
+bottom:0;
+margin-right: 26%; 
+width: 18%; 
+height:130px; 
+background-color:#F0FFFF ;
+text-align: left;
+padding-top: 10%;
+}
+.behind{
+z-index: -1;
+float: left;
+}
+div.bottom{
+bottom: 0;
+}
+div.bottom2{
+bottom: 0;
+text-align: center;
+}
+div.bottom3{
+bottom: 0;
+text-align: center;
+}
+
+
+</style>
+<title> GE Website </title>
+ <ul>
+   <li><a href = aboutUs > About Us </li>
+   <li><a id = contactUs > Contact Us</li>
+  <li><a class = "active" href = "http://10.229.173.40/"> Home </a></li>
+<img class= "behind" src="GEImage.jpg" alt="GE Logo" style="width:260px;height:80px;">
+  </ul>
+  <head>
+  <div class = "headcenter">
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+   <div class="relative">
+    <div class = "leftText"> Is it
+    </div>
+    <div class = "upText"> Up
+	</div>
+	 <div class = "centerText"> or
+	</div>
+    <div class = "downText"> Down?
+    </div>
+</div>
+	</div>
+  </head>
+
+
+<div id = "hidestuff" class = "bottom2" > <p></p>
+ </div>
+<div id = "hidestuff" class = "bottom3" > <p></p>
+ </div>
+
+<div class = "headcenter">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+
+
+
+<div class = "boxandbutton">
+<form  name = "url" method="get"  action="ping.php"> 
+<p> <input type="text" name = "url" id = "getElement" class= "textbox" placeholder = "Type in URL here" size = "50"/> </p>
+<p><input type="submit" class="button" value="Check Website"></p>
+</form>
+</div>
+</div>
+<link rel = â€œlink.comâ€ >
+<a href =â€ google.comâ€   </a>
+<div class = "bottom">
+<footer>
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<p> <img class= "behind" src="GEImage.jpg" alt="GE Logo" style="width:260px;height:80px;"> </p>
+	<font size = "3"> &copy 2016 General Electric Company </font>
+</footer>
+<div>
+
+<link rel = â€œlink.comâ€ >
+<a href =â€ google.comâ€   </a>
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+
+<script type="text/javascript">
+$(function(){
+  $('form[name=url]').submit(function(){
+
+	$.get($(this).attr('action'), $(this).serialize(), function(json) {
+
+var url = document.getElementById("getElement");
+
+		if (json == "200"){
+      			$("div.bottom2").text("The website " + url.value + " is availabe.");
+			$('.boxandbutton').hide();
+			$('.headcenter').hide();
+		}
+		else {
+			$("div.bottom2").text("The website " + url.value + "  is unavailabe.");
+			$('.boxandbutton').hide();
+			$('.headcenter').hide();
+
+		}
+    
+	}, 'json');
+
+ return false;
+		
+ 
+  });
+ $('#aboutUs').submit(function(){
+	
+	$("div.bottom2").text("This is a project completed by the Emerging Technologies Committee at GE Healthcare.
+				This team is comprised of Julia Zhang, Matthew DOmalewski, Constantin Kohler, Zach Shuster,
+				 Anthony Fante and mentored by Zach Waltz. Together we have created a web application 
+				That will check for webiste and server availability.");
+			$('.boxandbutton').hide();
+			$('.headcenter').hide();
+
+
+});
+ $('#contactUs').submit(function(){
+	
+	$("div.bottom2").text("If You have any improvements or thoughts you would like to share with us regarding this 
+website, our contact information is: yutongzhang@ge.com.");
+			$('.boxandbutton').hide();
+			$('.headcenter').hide();
+
+
+});
+	
+});
+
+
+</script>
+</body>
+</html>
